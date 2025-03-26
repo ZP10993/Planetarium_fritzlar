@@ -1,0 +1,705 @@
+h1, h2, h3, p, a {
+    font-family: outfit; /* Einheitliche Schriftart */
+    color: #000; /* Standardfarbe für alle Überschriften */
+}
+
+
+/* Individuelle Anpassungen */
+h1 {
+    font-size: 65px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 35px;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+a {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+@media (max-width: 576px) {
+    html, body {
+        overflow: hidden;
+    }
+}
+
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+    /* Header auf volle Breite setzen & fixieren */
+     .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 5px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 5px;
+        background-color: #fff;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw; /* Volle Breite des Viewports */
+        box-sizing: border-box;
+        z-index: 1000; /* Sicherstellen, dass der Header über allem liegt */
+    }
+
+    /* Platzhalter für den fixierten Header, um das Layout nicht zu verschieben */
+    body {
+        padding-top: 70px; /* Höhe des Headers, damit der Content nicht verdeckt wird */
+    }
+
+    /* Abtrennstrich mit Schatten auf volle Breite */
+    .head::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw; /* Volle Breite */
+        height: 2px; /* Strichstärke */
+        background: rgba(0, 0, 0, 1);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Schatten */
+    }
+
+    .logo {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0px; /* Individuell einstellbares Padding */
+    }
+
+    .logo img {
+        max-width: 50%;
+    }
+
+    /* Navigations-Container (rechts) */
+    .navigation {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navigation ul {
+        list-style: none;
+        display: flex;
+        gap: 15px; /* Mehr Abstand zwischen den Menüpunkten */
+        padding: 0;
+        margin: 0;
+    }
+
+    .navigation a {
+        text-decoration: none;
+        color: #000;
+        font-size: 15px; /* Menüpunkte größer machen */
+        font-weight: bold;
+        padding: 5px 20px;
+        border-radius: 12px;
+        transition: background 0.3s ease;
+    }
+
+    .navigation a:hover {
+        background: #000;
+        color: #fff;
+    }
+
+
+
+
+    .start {
+        position: relative;
+        display: flex;
+        flex-direction: column; /* Stellt sicher, dass alles untereinander bleibt */
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        height: 100vh; /* Standardhöhe anpassbar */
+        overflow: hidden;
+        padding-left: 25px; /* Einheitlicher Abstand links */
+        padding-right: 25px;
+    }
+
+    /* Bild */
+    .start img {
+        width: 100%;
+        height: 100%; /* Passt sich der Containerhöhe an */
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Bild hinter den Text legen */
+    }
+
+    /* Hauptüberschrift (kleiner) */
+    .start .planetarium-fritzlar {
+        font-size: 24px; /* Kleinere Schriftgröße */
+        font-weight: normal;
+        color: white;
+        z-index: 1;
+        text-align: left;
+        margin-bottom: -px; /* Reduzierter Abstand zur Subline */
+    }
+
+    /* Subline (größer) */
+    .start .subline {
+        font-size: 65px; /* Größere Schriftgröße */
+        font-weight: bold;
+        color: white;
+        z-index: 1;
+        text-align: left;
+        margin-top: 0px; /* Kein Abstand zur Hauptüberschrift */
+    }
+
+
+
+
+    .benefits-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 25px;
+        padding-right: 25px;
+        flex-wrap: nowrap;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    /* Alle Benefit-Container mit anpassbarer Breite und fester Höhe */
+    .benefit-kuppel, .benefit-fulldome, .benefit-location {
+        flex: 1;
+        min-width: 45%; /* Vergrößert die Breite */
+        max-width: 60%; /* Individuelle Anpassung */
+        height: 50px;
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border: 2px solid black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Einheitliche Bildgrößen für alle Icons */
+    .benefit-kuppel img, 
+    .benefit-fulldome img, 
+    .benefit-location img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+    }
+
+    /* Text neben dem Icon */
+    .benefit-kuppel h3, 
+    .benefit-fulldome h3, 
+    .benefit-location h3 {
+        margin: 0;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    /* Responsives Verhalten für sehr kleine Viewports */
+    @media (max-width: 600px) {
+        .benefits-container {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            justify-content: flex-start;
+        }
+
+        .benefit-kuppel, .benefit-fulldome, .benefit-location {
+            min-width: 50%; /* Größere Breite für mobile Ansicht */
+            max-width: 75%; /* Anpassbare maximale Breite */
+            height: 80px;
+            flex-direction: row;
+        }
+    }
+
+    .intro {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        text-align: left;
+        border-radius: 12px;
+    }
+
+    /* Header Styling */
+    .intro header h1 {
+        font-size: 28px;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .intro header p {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    /* Artikel Styling */
+    .intro-container p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #000;
+        text-align: justify;
+    }
+
+    /* Slider Container */
+    .intro-container_slider {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+        margin-top: 30px;
+        border-radius: 12px;
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .slides img {
+        width: 100%;
+        height:fit-content; /* Stellt sicher, dass das Seitenverhältnis beibehalten wird */
+        object-fit: contain; /* Verhindert Verzerrung, Bild wird vollständig angezeigt */
+        border-radius: 12px; /* Abgerundete Ecken */
+
+    }
+    
+
+    /* Slider Buttons */
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    /* Bullet Navigation */
+    .dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        margin: 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+
+    .dot.active {
+        background-color: #333;
+    }
+
+
+
+
+    .technic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100vw; /* Stellt sicher, dass es die gesamte Viewport-Breite einnimmt */
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 25px;
+        padding-right: 25px;
+        box-sizing: border-box;
+    }
+
+    /* Bildcontainer */
+    .image-container {
+        flex: 1;
+        width: 100vw; /* Volle Breite des Viewports */
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Textcontainer */
+    .text-container {
+        flex: 1;
+        max-width: 50%;
+        text-align: left;
+    }
+
+    .text-container h2 {
+        font-size: 28px;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .text-container p {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    /* Responsives Design */
+    @media (max-width: 1000px) {
+        .technic {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .image-container, .text-container {
+            max-width: 100%;
+        }
+    }
+
+
+
+    .programm {
+        background-color: #000; /* Schwarzer Hintergrund */
+        color: #fff; /* Weiße Schriftfarbe für bessere Lesbarkeit */
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 50px;
+        padding-top: 15px;
+        text-align: left;
+    }
+
+    .programm-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .card {
+        background-color: #222; /* Etwas heller für besseren Kontrast */
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+        text-align: left;
+        flex: 1;
+        min-width: 320px;
+        max-width: 380px;
+        border: 1px solid #444;
+    }
+
+    .programm h1 {
+        color: #fff;
+    }
+
+    .card h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .card p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #ddd;
+    }
+
+
+
+    .termin {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        margin-top: 15px;
+        color: #fff;
+    }
+    
+    .termin-icon {
+        width: 40px; /* Größe des Icons anpassen */
+        height: 40px;
+    }
+    
+
+    @media (max-width: 900px) {
+        .programm-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            max-width: 90%;
+        }
+    }
+
+
+
+  
+
+
+
+
+
+
+
+
+
+    
+
+    .eintrittspreise-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 25px;
+        padding-right: 25px;
+        flex-wrap: nowrap;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    /* Alle Eintritts-Container mit anpassbarer Breite und fester Höhe */
+    .eintritt-erwachsene, .eintritt-ermaessigt, .eintritt-kinder {
+        flex: 1;
+        min-width: 45%; /* Vergrößert die Breite */
+        max-width: 60%; /* Individuelle Anpassung */
+        background-color: #f4f4f4;
+        padding: 15px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column; /* Text unter dem Icon */
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Einheitliche Bildgrößen für alle Icons */
+    .eintritt-erwachsene img, 
+    .eintritt-ermaessigt img, 
+    .eintritt-kinder img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+    }
+
+    /* Text unter dem Icon */
+    .eintritt-erwachsene h3, 
+    .eintritt-ermaessigt h3, 
+    .eintritt-kinder h3 {
+        margin: 0;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* Responsives Verhalten für sehr kleine Viewports */
+    @media (max-width: 600px) {
+        .eintrittspreise-container {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            justify-content: flex-start;
+        }
+
+        .eintritt-erwachsene, .eintritt-ermaessigt, .eintritt-kinder {
+            min-width: 50%; /* Größere Breite für mobile Ansicht */
+            max-width: 75%; /* Anpassbare maximale Breite */
+            flex-direction: column;
+        }
+    }
+
+
+
+
+
+
+
+
+    .footer {
+        background-color: #000; /* Dunkler, moderner Hintergrund */
+        color: #fff;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+        gap: 10px;
+    }
+
+    .footer nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer nav ul li {
+        display: inline;
+    }
+
+    .footer nav ul li a {
+        color: #4da6ff; /* Blaue Links */
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .footer nav ul li a:hover {
+        color: #fff;
+    }
+
+    .kontakt, .oeffnungszeiten-footer {
+        text-align: left;
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .kontakt h3, .oeffnungszeiten-footer h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .kontakt p, .oeffnungszeiten-footer p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #ddd;
+        margin: 5px 0;
+    }
+
+    .kontakt a {
+        color: #4da6ff;
+        text-decoration: none;
+    }
+
+    .kontakt a:hover {
+        text-decoration: underline;
+        color: #fff;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    @media (min-width: 768px) {
+        .footer {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    .icon {
+        width: 20px; /* Größe anpassen */
+        height: 20px;
+        margin-right: 10px; /* Abstand zum Text */
+        vertical-align: middle;
+    }
+    
+    .icon {
+        width: 20px; /* Größe des Icons */
+        height: 20px;
+        margin-right: 10px; /* Abstand zum Text */
+        vertical-align: middle;
+    }
+    
+
+    .footer-bottom {
+        background-color: #fff; /* Weißer Balken */
+        padding: 15px 0;
+        text-align: center;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-bottom ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-bottom ul li {
+        display: inline;
+    }
+
+    .footer-bottom ul li a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    .footer-bottom ul li a:hover {
+        color: #007BFF; /* Blau für Hover-Effekt */
+    }
+    
